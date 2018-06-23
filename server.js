@@ -10,7 +10,7 @@ mongoose.Promise = global.Promise;
 // config.js is where we control constants for entire
 // app like PORT and DATABASE_URL
 const { PORT, DATABASE_URL } = require('./config');
-const { /*insert schema name here*/ } = require('./models')
+const { /*model export name here*/ } = require('./models')
 
 const app = express();
 app.use(express.json());
@@ -77,7 +77,7 @@ app.put('/:id', (req, res) => {
     }
   });
 
-  <schema name here>
+  <model export name here>
     // all key/value pairs in toUpdate will be updated -- that's what `$set` does
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
     .then(restaurant => res.status(204).end())
@@ -85,7 +85,7 @@ app.put('/:id', (req, res) => {
 });
 
 app.delete('/:id', (req, res) => {
-  <schema name here>
+  <model export name here>
     .findByIdAndRemove(req.params.id)
     .then(restaurant => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
